@@ -3,6 +3,7 @@ const router = express.Router();
 const notesDb = require('./noteDbModel.js');
 
 router.get('/all', (req, res) => {
+  console.log('GET /all reached');
   notesDb
     .get()
     .then(notes => {
