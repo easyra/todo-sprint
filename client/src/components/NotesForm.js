@@ -18,7 +18,7 @@ class NotesForm extends Component {
     const state = { ...this.state };
     const title = state.titleInput;
     const content = state.contentInput;
-    axios.post('http://localhost:6666/notes', { title, content }).then(res => {
+    axios.post('http://localhost:7000/notes', { title, content }).then(res => {
       console.log(res);
     });
   };
