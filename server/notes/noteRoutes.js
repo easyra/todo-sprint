@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/', (req, res) => {
+router.put('/:id', (req, res) => {
   const { title, content } = req.body;
   const { id } = req.params;
   notesDb
