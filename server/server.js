@@ -1,6 +1,8 @@
-const express = require('express')
-const server = express()
+const express = require('express');
+const morgan = require('morgan');
+const server = express();
 
-server.use(express.json())
+server.use(express.json());
+server.use(morgan);
 
-module.exports = server
+module.exports = server;
