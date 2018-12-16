@@ -22,17 +22,27 @@ function getById(id) {
 }
 
 function add(newData) {
-  return db(table).insert(newData);
+  db(table)
+    .insert(newData)
+    .then(() => {
+      return db(table);
+    });
 }
 
 function update(newData, id) {
   return db(table)
     .where({ id })
-    .update(newData);
+    .update(newData)
+    .then(() => {
+      return db(table);
+    });
 }
 
 function remove(id) {
   return db(table)
     .where({ id })
-    .del();
+    .del()
+    .then(() => {
+      return db(table);
+    });
 }
