@@ -4,7 +4,7 @@ const noteRoutes = require('./notes/noteRoutes.js');
 const server = express();
 
 server.use(express.json());
-server.use(morgan);
-server.use('notes', noteRoutes);
+//server.use(morgan('default'));
+server.use('/notes', noteRoutes);
 
 module.exports = server;

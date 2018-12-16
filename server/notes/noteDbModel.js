@@ -21,12 +21,9 @@ function getById(id) {
     .first();
 }
 
-function add(newData) {
-  db(table)
-    .insert(newData)
-    .then(() => {
-      return db(table);
-    });
+async function add(newData) {
+  await db(table).insert(newData);
+  return db(table);
 }
 
 function update(newData, id) {

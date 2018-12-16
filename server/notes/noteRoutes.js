@@ -27,14 +27,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   const { title, content } = req.body;
-  notesDb
-    .add({ title, content })
-    .then(notes => {
-      res.status(201).json(notes);
-    })
-    .catch(err => {
-      res.json(err);
-    });
+  notesDb.add({ title, content }).then(notes => {
+    res.json(notes);
+  });
 });
 
 router.put('/:id', (req, res) => {
