@@ -36,3 +36,16 @@ router.post('/', (req, res) => {
       res.json(err);
     });
 });
+
+router.put('/', (req, res) => {
+  const { title, content } = req.body;
+  const { id } = req.params;
+  notesDb
+    .update({ title, content }, id)
+    .then(notes => {
+      res.json(notes);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
