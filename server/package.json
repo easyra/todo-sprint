@@ -10,5 +10,9 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.18.9",
     "sqlite3": "^4.0.4"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   }
 }
