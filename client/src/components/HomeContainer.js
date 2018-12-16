@@ -9,11 +9,12 @@ class HomeContainer extends Component {
     notes: [],
   };
   render() {
+    const notes = this.state;
     return (
       <>
         <Navigator />
         <NotesForm />
-        <NotesList />
+        <NotesList notes={notes} />
       </>
     );
   }
