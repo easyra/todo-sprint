@@ -24,3 +24,15 @@ router.get('/:id', (req, res) => {
       releaseEvents.json(err);
     });
 });
+
+router.post('/', (req, res) => {
+  const { title, content } = req.body;
+  notesDb
+    .add({ title, content })
+    .then(notes => {
+      res.status(201).json(notes);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
