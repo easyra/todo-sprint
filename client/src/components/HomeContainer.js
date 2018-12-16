@@ -9,7 +9,7 @@ class HomeContainer extends Component {
     notes: [],
   };
   render() {
-    const notes = this.state;
+    const { notes } = this.state;
     return (
       <>
         <Navigator />
@@ -18,11 +18,17 @@ class HomeContainer extends Component {
       </>
     );
   }
-  componentDidMount = () => {
-    axios.get('http://localhost:6666/notes/all').then(res => {
-      const notes = res.data;
-      this.setState({ notes });
-    });
+
+  componentWillMount = () => {
+    axios
+      .get('http://localhost:7000/notes/all')
+      .then(res => {
+        const notes = res.data;
+        this.setState({ notes });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 }
 
