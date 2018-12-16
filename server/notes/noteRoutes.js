@@ -49,3 +49,15 @@ router.put('/:id', (req, res) => {
       res.json(err);
     });
 });
+
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  notesDb
+    .remove(id)
+    .then(notes => {
+      res.json(notes);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
