@@ -21,8 +21,8 @@ class HomeContainer extends Component {
     return (
       <>
         <Navigator />
-        <NotesForm />
-        <NotesList notes={notes} postNote={this.postNote} />
+        <NotesForm postNote={this.postNote} />
+        <NotesList notes={notes} />
       </>
     );
   }

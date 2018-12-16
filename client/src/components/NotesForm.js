@@ -40,7 +40,7 @@ class NotesForm extends Component {
           name="contentInput"
           onChange={this.handleInput}
         />
-        <button onClick={this.postedNewNote}>Submit</button>
+        <button onClick={this.submitNote}>Submit</button>
       </div>
     );
   }
