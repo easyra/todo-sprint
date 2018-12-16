@@ -8,18 +8,26 @@ class HomeContainer extends Component {
   state = {
     notes: [],
   };
+
+  postNote = noteObject => {
+    axios.post('http://localhost:7000/notes', noteObject).then(res => {
+      const notes = res.data;
+      this.setState({ notes });
+    });
+  };
+
   render() {
     const { notes } = this.state;
     return (
       <>
         <Navigator />
         <NotesForm />
-        <NotesList notes={notes} />
+        <NotesList notes={notes} postNote={this.postNote} />
       </>
     );
   }
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     axios
       .get('http://localhost:7000/notes/all')
       .then(res => {

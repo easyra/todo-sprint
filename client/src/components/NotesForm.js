@@ -14,13 +14,14 @@ class NotesForm extends Component {
     });
   };
 
-  postedNewNote = e => {
+  submitNote = e => {
     const state = { ...this.state };
+    const { postNote } = this.props;
+
     const title = state.titleInput;
     const content = state.contentInput;
-    axios.post('http://localhost:7000/notes', { title, content }).then(res => {
-      console.log(res);
-    });
+
+    postNote({ title, content });
   };
 
   render() {
