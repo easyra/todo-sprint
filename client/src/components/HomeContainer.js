@@ -21,8 +21,10 @@ class HomeContainer extends Component {
     return (
       <>
         <Navigator />
-        <NotesForm postNote={this.postNote} />
-        <NotesList notes={notes} />
+        <div className="container">
+          <NotesForm postNote={this.postNote} />
+          <NotesList notes={notes} />
+        </div>
       </>
     );
   }

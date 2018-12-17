@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './NotesForm.css';
 import axios from 'axios';
 
 class NotesForm extends Component {
@@ -15,6 +16,8 @@ class NotesForm extends Component {
   };
 
   submitNote = e => {
+    e.preventDefault();
+
     const state = { ...this.state };
     const { postNote } = this.props;
 
@@ -27,21 +30,32 @@ class NotesForm extends Component {
   render() {
     const { titleInput, contentInput } = this.state;
     return (
-      <div>
-        <input
-          value={titleInput}
-          placeholder="titleInput"
-          name="titleInput"
-          onChange={this.handleInput}
-        />
-        <input
-          value={contentInput}
-          placeholder="contentInput"
-          name="contentInput"
-          onChange={this.handleInput}
-        />
-        <button onClick={this.submitNote}>Submit</button>
-      </div>
+      <form className="row col s12" onSubmit={this.submitNote}>
+        <h2>Notes Form</h2>
+        <div className="input-field col s6">
+          <input
+            id="title"
+            type="text"
+            value={titleInput}
+            name="titleInput"
+            onChange={this.handleInput}
+          />
+          <label for="title">Title</label>
+        </div>
+        <div className="input-field col s6">
+          <input
+            id="content"
+            type="text"
+            value={contentInput}
+            name="contentInput"
+            onChange={this.handleInput}
+          />
+          <label for="content">Content</label>
+        </div>
+        <div>
+          <input type="submit" value="Submit Note" class="btn" />
+        </div>
+      </form>
     );
   }
 }
