@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import HomeContainer from './components/HomeContainer';
 
 class App extends Component {
