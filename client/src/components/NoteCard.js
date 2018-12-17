@@ -3,9 +3,11 @@ import React from 'react';
 const NoteCard = ({ note }) => {
   const { title, content } = note;
   return (
-    <div>
-      <h2>{title}</h2>
-      <p>{content}</p>
+    <div className="col s12 m4">
+      <div className="card-panel purple z-depth-2">
+        <h4>{title}</h4>
+        <p>{content}</p>
+      </div>
     </div>
   );
 };
