@@ -4,7 +4,7 @@ import NoteCard from './NoteCard';
 const NotesList = ({ notes }) => {
   console.log(notes);
   return (
-    <div>
+    <div className="row">
       {notes && notes.map(note => <NoteCard note={note} key={note.id} />)}
     </div>
   );
