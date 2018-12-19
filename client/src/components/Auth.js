@@ -29,6 +29,7 @@ export default class Auth {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
+        console.log('session set');
       } else if (err) {
         history.replace('/home');
         console.log(err);
@@ -94,6 +95,13 @@ export default class Auth {
   }
 
   login() {
-    this.auth0.authorize();
+    this.auth0.popup.authorize(
+      {
+        //Any additional options can go here
+      },
+      (err, authResult) => {
+        this.handleAuthentication(err, authResult);
+      }
+    );
   }
 }
